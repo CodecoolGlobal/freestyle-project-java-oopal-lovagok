@@ -38,7 +38,7 @@ public class Main {
 	
 
 	String[][] mapMultiDim = new String[24][58];
-        String map ="........................................................||" +
+        String map =".........................................................|" +
                     "|_.......................................................|" +
                     ".|............................_..........................|" +
                     ".|...........................|...........................|" +
@@ -67,9 +67,12 @@ public class Main {
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
                         System.out.println();
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
-	if (player.x == col && player.y == row) 
-		{mapMultiDim[col][row] = player.body;
-	    System.out.print(mapMultiDim[col][row]);}
+	if (player.x == col && player.y == row)
+		{
+        mapMultiDim[col][row] = player.body;
+	    System.out.print(mapMultiDim[col][row]);
+		index++;
+		}
 	else {
                 mapMultiDim[col][row] = Character.toString(map.charAt(index));
 		System.out.print(mapMultiDim[col][row]);
