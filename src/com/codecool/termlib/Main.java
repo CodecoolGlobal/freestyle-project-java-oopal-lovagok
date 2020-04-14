@@ -8,10 +8,30 @@ import java.awt.event.KeyEvent;
 public class Main {
 
     public static void main(String[] args) {
-        Color first = Color.BLUE;
-        Attribute second = Attribute.BRIGHT;
-	    Player firstPlayer = new Player();
-	    setMap(firstPlayer);
+        boolean isGamePlaying = true;
+        Player firstPlayer = new Player();
+        setMap(firstPlayer);
+        while (isGamePlaying) {
+            Scanner sc = new Scanner(System.in);
+            String move = sc.next();
+            if (move.equals("d")) {
+               firstPlayer.setXpositive();
+            }
+            else if (move.equals("a")) {
+                firstPlayer.setXnegative();
+            }
+            else if (move.equals("w")) {
+                firstPlayer.setYpositive();
+            }
+            else if (move.equals("s")) {
+                firstPlayer.setYnegative();
+            }
+            else if (move.equals("exit")) {
+                isGamePlaying = false;
+            }
+            setMap(firstPlayer);
+        }
+
 
     }
 	public static void setMap(Player player) {
@@ -64,57 +84,23 @@ public class Main {
 
 }
 public static class Player {
-    int x = 0;
-    int y = 0;
+    private int x = 0;
+    private int y = 0;
     String body = "O";
 
-//    public void keyPressed(KeyEvent e) {
-//
-//        int key = e.getKeyCode();
-//
-//        if (key == KeyEvent.VK_LEFT) {
-//            dx = -1;
-//        }
-//
-//        if (key == KeyEvent.VK_RIGHT) {
-//            dx = 1;
-//        }
-//
-//        if (key == KeyEvent.VK_UP) {
-//            dy = -1;
-//        }
-//
-//        if (key == KeyEvent.VK_DOWN) {
-//            dy = 1;
-//        }
-//    }
-//
-//    public void keyReleased(KeyEvent e) {
-//
-//        int key = e.getKeyCode();
-//
-//        if (key == KeyEvent.VK_LEFT) {
-//            dx = 0;
-//        }
-//
-//        if (key == KeyEvent.VK_RIGHT) {
-//            dx = 0;
-//        }
-//
-//        if (key == KeyEvent.VK_UP) {
-//            dy = 0;
-//        }
-//
-//        if (key == KeyEvent.VK_DOWN) {
-//            dy = 0;
-//        }
-//    }
-//
-//    public void move() {
-//
-//        x += dx;
-//        y += dy;
-//    }
+    public void setXpositive() {
+        this.y = this.y + 1;
+    }
+    public void setXnegative() {
+        this.y = this.y - 1;
+    }
+
+    public void setYpositive() {
+        this.x = this.x - 1;
+    }
+    public void setYnegative() {
+        this.x = this.x + 1;
+    }
 }
 }
     
