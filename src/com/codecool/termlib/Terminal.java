@@ -53,6 +53,7 @@ public class Terminal {
      * @param y Row number.
      */
     public void moveTo(Integer x, Integer y) {
+
     }
 
     /**
