@@ -9,8 +9,18 @@ public class Main {
 
     public static void main(String[] args) {
         Color first = Color.BLUE;
-        Attribute second = Attribute.BRIGHT;      
-        String[][] mapMultiDim = new String[24][58];
+        Attribute second = Attribute.BRIGHT;
+	Player firstPlayer = new Player();
+	setMap(firstPlayer);    
+
+    }
+	public static void setMap(Object player) {
+	int playerX = player.x;
+	int playerY = player.y;
+	String playerBody = player.body;
+	
+
+	String[][] mapMultiDim = new String[24][58];
         String map = ".........................................................." +
                     ".........................................................." + 
                     ".............................||||||||||||||||||||||||||||F" +
@@ -36,24 +46,30 @@ public class Main {
                     "....|....................................................." +
                     "....C.....................................................";
                     try {
-                        
-                    
                     int index = 0;
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
                         System.out.println();
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
+	if (player.x == col && player.y == row) 
+		{mapMultiDim[col][row] = player.body;}
+	else {
                 mapMultiDim[col][row] = Character.toString(map.charAt(index));
-                System.out.print(mapMultiDim[col][row]);
+		System.out.println(mapMultiDim[col][row]);
                 index ++;
+		}
             }
          }
          }
           catch (Exception arrException) {
                 System.out.println();         
             }
-            
 
-    }
-    }
+}
+public static class Player {
+	int x = 0;
+	int y = 0;
+	String body = "O";
+}
+}
     
       
