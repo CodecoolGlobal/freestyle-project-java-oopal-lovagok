@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Color first = Color.BLUE;
         Attribute second = Attribute.BRIGHT;      
-        String[][] mapMultiDim = new String[23][58];
+        String[][] mapMultiDim = new String[24][58];
         String map = ".........................................................." +
                     ".........................................................." + 
                     ".............................||||||||||||||||||||||||||||F" +
