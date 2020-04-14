@@ -31,8 +31,8 @@ public class Terminal {
      * Reset the color, background color, and any other style
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
-    public static void resetStyle() {
-	System.out.println("kaki");
+    public void resetStyle() {
+	
 }
 
     /**
@@ -120,6 +120,6 @@ public class Terminal {
      */
     private void command(String commandString) {
     }
-
+	
 
 }
