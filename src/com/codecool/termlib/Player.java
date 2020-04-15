@@ -3,7 +3,7 @@ package com.codecool.termlib;
 public class Player {
     int x = 2;
     int y = 7;
-    String body = "O";
+    String body = "&";
     boolean key = false;
     public final String VICTORY = "you get the key bro";
     private String sword = "short sword";
