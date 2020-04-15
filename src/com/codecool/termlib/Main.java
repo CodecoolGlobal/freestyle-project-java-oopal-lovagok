@@ -14,12 +14,14 @@ public class Main {
             if (firstPlayer.key) {
                 System.out.println(firstPlayer.VICTORY);
             }
+            /* System.out.println(firstPlayer.sword); */
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
             
             if (move.equals("d")) {
-               firstPlayer.setXpositive();
+               if(Map.validate(firstPlayer.x+1 ,firstPlayer.y)){
+               firstPlayer.setXpositive();}
             }
             else if (move.equals("a")) {
                 firstPlayer.setXnegative();
@@ -33,19 +35,19 @@ public class Main {
             else if (move.equals("exit")) {
                 isGamePlaying = false;
             }
-            if (firstPlayer.x < 1) {
-                firstPlayer.x = 1;
-            }
-            else if (firstPlayer.x > 22) {
-                firstPlayer.x = 22;
-            }
-            else if (firstPlayer.y < 1) {
+            /* terminal.clearScreen(); */
+            if (firstPlayer.y < 1) {
                 firstPlayer.y = 1;
             }
-            else if (firstPlayer.y > 56) {
-                firstPlayer.y = 56;
+            else if (firstPlayer.y > 22) {
+                firstPlayer.y = 22;
             }
-            terminal.clearScreen();
+            else if (firstPlayer.x < 1) {
+                firstPlayer.x = 1;
+            }
+            else if (firstPlayer.x > 56) {
+                firstPlayer.x = 56;
+            }
             level1.main(firstPlayer);
         }
     }

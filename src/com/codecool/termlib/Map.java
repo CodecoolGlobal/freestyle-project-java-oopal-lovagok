@@ -1,7 +1,7 @@
 package com.codecool.termlib;
 public class Map  {
+    static String[][] mapMultiDim = new String [24][58];
     public void main (Player firstPlayer){
-    String[][] mapMultiDim = new String [24][58];
     String map =".............................|...........................|" +
     "|............................|...........................|" +
     "|............................#...........................|" +
@@ -35,38 +35,38 @@ public class Map  {
     String partOfMap = "";
     String pipeOfMap = "|";
     try {
-    for (int col = 0; col < mapMultiDim[0].length ; col++) {
+    for (int row = 0; row < mapMultiDim[0].length ; row++) {
         System.out.println();
-        for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
+        for (int col = 0; col < mapMultiDim[row].length  ; col ++) {
             partOfMap = Character.toString(map.charAt(index));
             
-            if (index == keyOfMap && firstPlayer.x == col && firstPlayer.y == row) {                             
-                mapMultiDim[col][row] = firstPlayer.body;
-                System.out.print(mapMultiDim[col][row]);
-                mapMultiDim[col][row] = dot;
+            if (index == keyOfMap && firstPlayer.y == row && firstPlayer.x == col) {                             
+                mapMultiDim[row][col] = firstPlayer.body;
+                System.out.print(mapMultiDim[row][col]);
+                mapMultiDim[row][col] = dot;
                 firstPlayer.setKey(true);
                 index ++;
             }
-            else if (index == loot && firstPlayer.x == col && firstPlayer.y == row) {                             
-                mapMultiDim[col][row] = dot;
+            else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {                             
+                mapMultiDim[row][col] = dot;
                 firstPlayer.setSword(item);
                 index ++;
             }
-            else if (firstPlayer.x == col && firstPlayer.y == row)
+            else if (firstPlayer.y == row && firstPlayer.x == col)
             {
-            mapMultiDim[col][row] = firstPlayer.body;
-            System.out.print(mapMultiDim[col][row]);
+            mapMultiDim[row][col] = firstPlayer.body;
+            System.out.print(mapMultiDim[row][col]);
             index++;
             }
             
             else {
                 if (partOfMap.equals(pipeOfMap)) {
-                    mapMultiDim[col][row] = "\u001B[35m" + partOfMap + "\u001B[0m";
-                    System.out.print(mapMultiDim[col][row]);
+                    mapMultiDim[row][col] = "\u001B[35m" + partOfMap + "\u001B[0m";
+                    System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else {
-                    mapMultiDim[col][row] = partOfMap;
-                    System.out.print(mapMultiDim[col][row]);
+                    mapMultiDim[row][col] = partOfMap;
+                    System.out.print(mapMultiDim[row][col]);
                     index ++;
                 }
                 }
@@ -74,7 +74,15 @@ public class Map  {
         }
     }
     catch (Exception exception){
-        
+
     }
+   
+    }
+    public static boolean validate(int abszcissza , int oordinata){
+        System.out.print(mapMultiDim[abszcissza][oordinata]);
+        if (mapMultiDim[abszcissza][oordinata].equals("|")){
+            return false;
+        }
+        return true;
     }
 }
