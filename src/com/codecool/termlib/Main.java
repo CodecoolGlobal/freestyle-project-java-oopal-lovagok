@@ -1,9 +1,6 @@
 package com.codecool.termlib;
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.io.File;
-import java.awt.event.KeyEvent;
 
 public class Main {
 
@@ -15,6 +12,7 @@ public class Main {
             if (firstPlayer.key) {
                 System.out.println(firstPlayer.VICTORY);
             }
+            System.out.println(firstPlayer.sword);
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
@@ -35,17 +33,17 @@ public class Main {
                 isGamePlaying = false;
             }
             clearScreen();
-            if (firstPlayer.x < 0) {
-                firstPlayer.x = 0;
+            if (firstPlayer.x < 1) {
+                firstPlayer.x = 1;
             }
-            else if (firstPlayer.x > 23) {
-                firstPlayer.x = 23;
+            else if (firstPlayer.x > 22) {
+                firstPlayer.x = 22;
             }
-            else if (firstPlayer.y < 0) {
-                firstPlayer.y = 0;
+            else if (firstPlayer.y < 1) {
+                firstPlayer.y = 1;
             }
-            else if (firstPlayer.y > 57) {
-                firstPlayer.y = 57;
+            else if (firstPlayer.y > 56) {
+                firstPlayer.y = 56;
             }
             setMap(firstPlayer);
         }
@@ -58,7 +56,7 @@ public class Main {
                     "|_.......................................................|" +
                     ".|...........K................_..........................|" +
                     ".|...........................|...........................|" +
-                    "/............................|...........................|" +
+                    "/........L...................|...........................|" +
                     "|............................|...........................|" +
                     "|............................|...........................|" +
                     "|............................|...........................|" +
@@ -80,7 +78,9 @@ public class Main {
                     "|___|____________________________________________________|";
                     int keyOfMap = map.indexOf("K");
                     int pipe = map.indexOf("|");
-
+                    int loot = map.indexOf("L");
+                    String dot = ".";
+                    String item = "long sword";
                     try {
                     int index = 0;
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
@@ -88,8 +88,13 @@ public class Main {
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
                             
                             if (index == keyOfMap && player.x == col && player.y == row) {                             
-                                mapMultiDim[col][row] = "X";
+                                mapMultiDim[col][row] = dot;
                                 player.setKey(true);
+                                index ++;
+                            }
+                            else if (index == loot && player.x == col && player.y == row) {                             
+                                mapMultiDim[col][row] = dot;
+                                player.setSword(item);
                                 index ++;
                             }
                             else if (player.x == col && player.y == row)
@@ -118,6 +123,7 @@ public static class Player {
     String body = "O";
     boolean key = false;
     public final String VICTORY = "you get the key bro";
+    private String sword = "short sword";
 
     public void setXpositive() {
         this.y = this.y + 1;
@@ -134,6 +140,13 @@ public static class Player {
     public void setYnegative() {
         this.x = this.x + 1;
     }
+    public String getSword() {
+        return sword;
+    }
+    public void setSword(String newItem) {
+        this.sword = newItem;
+    }
+
     
 }
 
