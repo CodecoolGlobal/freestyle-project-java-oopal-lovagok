@@ -81,11 +81,14 @@ public class Main {
                     int loot = map.indexOf("L");
                     String dot = ".";
                     String item = "long sword";
+                    String partOfMap = "";
+                    String pipeOfMap = "|";
                     try {
                     int index = 0;
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
                         System.out.println();
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
+                            partOfMap = Character.toString(map.charAt(index));
                             
                             if (index == keyOfMap && player.x == col && player.y == row) {                             
                                 mapMultiDim[col][row] = dot;
@@ -105,16 +108,22 @@ public class Main {
                             }
                             
                             else {
-                                    mapMultiDim[col][row] = Character.toString(map.charAt(index));
-                            System.out.print(mapMultiDim[col][row]);
+                                if (partOfMap.equals(pipeOfMap)) {
+                                    mapMultiDim[col][row] = "\u001B[35m" + partOfMap + "\u001B[0m";
+                                    System.out.print(mapMultiDim[col][row]);
                                     index ++;
-                            }
+                                } else {
+                                    mapMultiDim[col][row] = partOfMap;
+                                    System.out.print(mapMultiDim[col][row]);
+                                    index ++;
+                                }
                                 }
                             }
-                            }
-                            catch (Exception arrException) {
-                                    System.out.println();         
-                                }
+                        }
+                    }
+                    catch (Exception arrException) {
+                        System.out.println();         
+                    }
 
 }
 //public static class Player {
