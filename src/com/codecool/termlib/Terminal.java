@@ -32,7 +32,7 @@ public class Terminal {
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
     public void resetStyle() {
-	
+	System.out.println(CONTROL_CODE + 0 + STYLE);
 }
 
     /**
@@ -63,7 +63,11 @@ public class Terminal {
      *
      * @param color The color to set.
      */
-    public void setColor(Color color) {
+    public void setColor(int color) {
+         
+       // \u001B[35m
+       System.out.println(CONTROL_CODE + String.valueOf(color) + STYLE);
+
     }
 
     /**

@@ -12,9 +12,13 @@ public class Main {
         Player firstPlayer = new Player();
         setMap(firstPlayer);
         while (isGamePlaying) {
+            if (firstPlayer.key) {
+                System.out.println(firstPlayer.VICTORY);
+            }
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
+
             if (move.equals("d")) {
                firstPlayer.setXpositive();
             }
@@ -35,12 +39,12 @@ public class Main {
         }
     }
 	public static void setMap(Player player) {
-	
+	Terminal terminal = new Terminal();
 
 	String[][] mapMultiDim = new String[24][58];
         String map =".........................................................|" +
                     "|_.......................................................|" +
-                    ".|............................_..........................|" +
+                    ".|...........K................_..........................|" +
                     ".|...........................|...........................|" +
                     "/............................|...........................|" +
                     "|............................|...........................|" +
@@ -62,49 +66,70 @@ public class Main {
                     "|...|....................................................|" +
                     "|.C.|....................................................|" +
                     "|___|____________________________________________________|";
+                    int keyOfMap = map.indexOf("K");
+                    int pipe = map.indexOf("|");
+
                     try {
                     int index = 0;
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
                         System.out.println();
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
-	if (player.x == col && player.y == row)
-		{
-        mapMultiDim[col][row] = player.body;
-	    System.out.print(mapMultiDim[col][row]);
-		index++;
-		}
-	else {
-                mapMultiDim[col][row] = Character.toString(map.charAt(index));
-		System.out.print(mapMultiDim[col][row]);
-                index ++;
-		}
-            }
-         }
-         }
-          catch (Exception arrException) {
-                System.out.println();         
-            }
+                            if (index == (pipe - 1)) {
+                                Color color =  Color.BLUE;
+                                terminal.setColor(34);
+                                index ++;
+                                //terminal.resetStyle();
+                            }
+                            else if (index == keyOfMap && player.x == col && player.y == row) {                             
+                                mapMultiDim[col][row] = "X";
+                                player.setKey(true);
+                                index ++;
+                            }
+                            else if (player.x == col && player.y == row)
+                            {
+                            mapMultiDim[col][row] = player.body;
+                            System.out.print(mapMultiDim[col][row]);
+                            index++;
+                            }
+                            
+                            else {
+                                    mapMultiDim[col][row] = Character.toString(map.charAt(index));
+                            System.out.print(mapMultiDim[col][row]);
+                                    index ++;
+                            }
+                                }
+                            }
+                            }
+                            catch (Exception arrException) {
+                                    System.out.println();         
+                                }
 
 }
 public static class Player {
-    private int x = 0;
-    private int y = 0;
+    private int x = 2;
+    private int y = 7;
     String body = "O";
+    boolean key = false;
+    public final String VICTORY = "you get the key bro";
 
     public void setXpositive() {
         this.y = this.y + 1;
     }
+    public void setKey(boolean have) {
+        key = have;
+    }
     public void setXnegative() {
         this.y = this.y - 1;
     }
-
     public void setYpositive() {
         this.x = this.x - 1;
     }
     public void setYnegative() {
         this.x = this.x + 1;
     }
+    
 }
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
