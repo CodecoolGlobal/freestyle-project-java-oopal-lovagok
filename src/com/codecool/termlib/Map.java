@@ -27,8 +27,14 @@ public class Map  {
     "|.K.|....................................................|" +
     "|___|____________________________________________________|";
     int keyOfMap = map.indexOf("K");
+    /* if (firstPlayer.key == true){
+        System.out.println(map.charAt(keyOfMap));
+        String cica = map.replace("K", ".");
+        System.out.println(cica);
+    } */
     int pipe = map.indexOf("|");
     int loot = map.indexOf("L");
+    int boss = map.indexOf("E");
     String dot = ".";
     int index = 0;
     String item = "long sword";
@@ -66,6 +72,9 @@ public class Map  {
                     index ++;
                 } else {
                     mapMultiDim[row][col] = partOfMap;
+                    if(firstPlayer.key){
+                        mapMultiDim[22][2] = ".";
+                            }
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 }
