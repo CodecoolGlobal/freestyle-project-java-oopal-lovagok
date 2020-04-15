@@ -41,6 +41,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
+        System.out.println(CONTROL_CODE + 0 + STYLE);
     }
 
     /**
