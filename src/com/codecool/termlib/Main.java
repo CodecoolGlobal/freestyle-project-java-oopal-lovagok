@@ -18,7 +18,7 @@ public class Main {
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
-
+            
             if (move.equals("d")) {
                firstPlayer.setXpositive();
             }
@@ -74,13 +74,8 @@ public class Main {
                     for (int col = 0; col < mapMultiDim[0].length ; col++) {
                         System.out.println();
                         for (int row = 0; row < mapMultiDim[col].length  ; row ++) {
-                            if (index == (pipe - 1)) {
-                                Color color =  Color.BLUE;
-                                terminal.setColor(34);
-                                index ++;
-                                //terminal.resetStyle();
-                            }
-                            else if (index == keyOfMap && player.x == col && player.y == row) {                             
+                            
+                            if (index == keyOfMap && player.x == col && player.y == row) {                             
                                 mapMultiDim[col][row] = "X";
                                 player.setKey(true);
                                 index ++;
