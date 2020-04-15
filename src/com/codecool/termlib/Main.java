@@ -35,6 +35,18 @@ public class Main {
                 isGamePlaying = false;
             }
             clearScreen();
+            if (firstPlayer.x < 0) {
+                firstPlayer.x = 0;
+            }
+            else if (firstPlayer.x > 23) {
+                firstPlayer.x = 23;
+            }
+            else if (firstPlayer.y < 0) {
+                firstPlayer.y = 0;
+            }
+            else if (firstPlayer.y > 57) {
+                firstPlayer.y = 57;
+            }
             setMap(firstPlayer);
         }
     }
