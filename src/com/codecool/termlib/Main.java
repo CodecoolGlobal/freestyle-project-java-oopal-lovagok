@@ -19,17 +19,20 @@ public class Main {
             String move = sc.next();
             
             if (move.equals("d")) {
-                System.out.print(Map.validate(firstPlayer.x + 1, firstPlayer.y));
                if(Map.validate(firstPlayer.x + 1, firstPlayer.y)) {firstPlayer.setXpositive();}
             }
             else if (move.equals("a")) {
-                firstPlayer.setXnegative();
+                if (Map.validate(firstPlayer.x - 1, firstPlayer.y)) {
+                    firstPlayer.setXnegative();
+                }
             }
             else if (move.equals("w")) {
-                firstPlayer.setYpositive();
+                if (Map.validate(firstPlayer.x, firstPlayer.y - 1)) {firstPlayer.setYpositive();}
             }
             else if (move.equals("s")) {
-                firstPlayer.setYnegative();
+                if (Map.validate(firstPlayer.x, firstPlayer.y + 1)) {
+                    firstPlayer.setYnegative();
+                }
             }
             else if (move.equals("exit")) {
                 isGamePlaying = false;
