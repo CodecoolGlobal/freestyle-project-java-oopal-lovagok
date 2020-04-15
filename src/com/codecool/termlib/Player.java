@@ -1,8 +1,8 @@
 package com.codecool.termlib;
 
 public class Player {
-    int x = 15;
-    int y = 13;
+    int x = 26;
+    int y = 9;
     String body = "&";
     boolean key = false;
     public final String VICTORY = "you get the key bro";

@@ -35,9 +35,9 @@ public class Map  {
     String partOfMap = "";
     String pipeOfMap = "|";
     try {
-    for (int row = 0; row < mapMultiDim[0].length ; row++) {
+    for (int row = 0; row < 58 ; row++) {
         System.out.println();
-        for (int col = 0; col < mapMultiDim[row].length  ; col ++) {
+        for (int col = 0; col < 58  ; col ++) {
             partOfMap = Character.toString(map.charAt(index));
             
             if (index == keyOfMap && firstPlayer.y == row && firstPlayer.x == col) {                             
@@ -61,7 +61,7 @@ public class Map  {
             
             else {
                 if (partOfMap.equals(pipeOfMap)) {
-                    mapMultiDim[row][col] = "\u001B[35m" + partOfMap + "\u001B[0m";
+                    mapMultiDim[row][col] = partOfMap;
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else {
@@ -78,11 +78,11 @@ public class Map  {
     }
    
     }
-    public static boolean validate(int abszcissza , int oordinata){
-        System.out.print(mapMultiDim[abszcissza][oordinata]);
-        if (mapMultiDim[abszcissza][oordinata].equals("|")){
+    public static boolean validate(int fckignX , int goddamnY){
+        String pipe = new String("|");
+        String nextElement = mapMultiDim[goddamnY][fckignX];
+        if (nextElement.equals(pipe)){
             return false;
-        }
-        return true;
+        } else {return true;}
     }
 }

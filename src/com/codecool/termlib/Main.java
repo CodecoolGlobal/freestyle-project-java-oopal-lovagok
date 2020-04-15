@@ -14,14 +14,13 @@ public class Main {
             if (firstPlayer.key) {
                 System.out.println(firstPlayer.VICTORY);
             }
-            /* System.out.println(firstPlayer.sword); */
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
             
             if (move.equals("d")) {
-               if(Map.validate(firstPlayer.x+1 ,firstPlayer.y)){
-               firstPlayer.setXpositive();}
+                System.out.print(Map.validate(firstPlayer.x + 1, firstPlayer.y));
+               if(Map.validate(firstPlayer.x + 1, firstPlayer.y)) {firstPlayer.setXpositive();}
             }
             else if (move.equals("a")) {
                 firstPlayer.setXnegative();
