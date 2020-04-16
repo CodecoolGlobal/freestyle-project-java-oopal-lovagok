@@ -31,6 +31,7 @@ public class Map  {
     int pipe = map.indexOf("|");
     int loot = map.indexOf("L");
     int boss = map.indexOf("E");
+    int nextLevel = map.indexOf("F");
     String dot = ".";
     int index = 0;
     String item = "long sword";
@@ -64,6 +65,11 @@ public class Map  {
                 if (chest.openChest()) {
                     firstPlayer.setGolds(true);}
                 index ++;
+            }
+            else if (index == nextLevel && firstPlayer.y == row && firstPlayer.x == col){
+                mapMultiDim[row][col] = dot;
+                Final vege = new Final();
+                vege.ending(firstPlayer);
             }
             else if (firstPlayer.y == row && firstPlayer.x == col)
             {
@@ -122,7 +128,7 @@ public class Map  {
         }
     }
     catch (Exception exception){
-        System.out.println("level 1");
+
     }
    
     }
