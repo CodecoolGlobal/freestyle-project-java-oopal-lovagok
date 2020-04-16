@@ -11,11 +11,11 @@ public class Main {
         Map level1 = new Map();
         terminal.clearScreen();
         level1.main(firstPlayer);
-        Final gameEnd = new Final();
         while (isGamePlaying) {
-            if (gameEnd.gameOver == true){
+            if (Final.gameOver == true){
+                terminal.clearScreen();
                 System.out.print("Congrats you win!");
-                isGamePlaying= false;
+                break;
             }
             System.out.println("Health Point: " + firstPlayer.HP);
             if (firstPlayer.key) {

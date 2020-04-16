@@ -62,9 +62,9 @@ public class Map  {
                 mapMultiDim[row][col] = firstPlayer.body;
                 System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
-                if (chest.openChest()) {
+                /* if (chest.openChest()) {
                     firstPlayer.setGolds(true);}
-                index ++;
+                index ++; */
             }
             else if (index == nextLevel && firstPlayer.y == row && firstPlayer.x == col){
                 mapMultiDim[row][col] = dot;
