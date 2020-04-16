@@ -50,15 +50,15 @@ public class Map  {
         System.out.println();
         for (int col = 0; col < 58  ; col ++) {
             partOfMap = Character.toString(map.charAt(index));
-            
-            if (index == keyOfMap && firstPlayer.y == row && firstPlayer.x == col) {                             
+
+            if (index == keyOfMap && firstPlayer.y == row && firstPlayer.x == col) {
                 mapMultiDim[row][col] = firstPlayer.body;
                 System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
                 firstPlayer.setKey(true);
                 index ++;
             }
-            else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {                             
+            else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {
                 mapMultiDim[row][col] = firstPlayer.body;
                 System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
