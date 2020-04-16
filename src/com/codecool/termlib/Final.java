@@ -9,9 +9,8 @@ public class Final {
         static boolean gameOver = false;
         public void ending(Player player){
                 terminal.clearScreen();
-                System.out.println("1. Asnwer the gatekeeper question");
-                System.out.println("2. Bribe");
-                System.out.println(player.HP);
+                System.out.println("1. Answer the gatekeeper's question");
+                System.out.println("2. Bribe him");
                 Scanner sc = new Scanner(System.in);
                 String choose = sc.next();
                 if(choose.equals("1")){
@@ -36,7 +35,6 @@ public class Final {
         
         private static int random() {
             int x = (int) (Math.random() * 3);
-            System.out.println(x);
             return x;
         }
 }

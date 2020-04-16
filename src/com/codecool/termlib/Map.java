@@ -28,6 +28,7 @@ public class Map  {
     "|...|.|^^^^^^^^^^^^^^^^^^^^~~~~~~~~~^^^^^^^^^^^^^^|K|.L..|" +
     "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";
     int keyOfMap = map.indexOf("K");
+    Terminal terminal = new Terminal();
     int pipe = map.indexOf("|");
     int loot = map.indexOf("L");
     int boss = map.indexOf("E");

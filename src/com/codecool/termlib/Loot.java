@@ -6,7 +6,7 @@ public class Loot {
         return x;
     }
     public static boolean openChest() {
-        if (random() > 1) {
+        if (random() > 2) {
             return true;
         } else {return false;}
     }
