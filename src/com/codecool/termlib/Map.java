@@ -69,6 +69,8 @@ public class Map  {
                 Battle battle = new Battle();
                 Enemy enemy = new Enemy();
                 battle.battle(firstPlayer, enemy);
+                mapMultiDim[row][col] = "X";
+                System.out.print(mapMultiDim[row][col]);
                 firstPlayer.secondKey = true;
                 index ++;
 
@@ -110,7 +112,7 @@ public class Map  {
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(K)) {
-                    mapMultiDim[row][col] = "\033[1;43m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = firstPlayer.key ? ".": "\033[1;43m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(S)) {
@@ -128,7 +130,7 @@ public class Map  {
                         mapMultiDim[13][31] = ".";
                             }
                     if (firstPlayer.secondKey) {
-                        mapMultiDim[6][29] = "D";
+                        mapMultiDim[6][29] = ".";
                     }
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
