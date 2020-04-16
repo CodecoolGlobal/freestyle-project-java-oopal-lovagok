@@ -19,7 +19,8 @@ public class Final {
                     gameOver = Answer.equals(GoodAnswers[num]) ? true:false;
                     if (gameOver == false){
                         player.HP = player.HP-50;
-                        ending(player);
+                        if (player.HP <= 0)
+                        {gameOver = false;} else {ending(player);}
                     }
                 }
                 else if(choose.equals("2")){

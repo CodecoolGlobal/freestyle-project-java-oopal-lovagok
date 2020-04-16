@@ -12,6 +12,12 @@ public class Main {
         terminal.clearScreen();
         level1.main(firstPlayer);
         while (isGamePlaying) {
+            System.out.println("Which way u want to move?");
+            if (firstPlayer.HP <= 0) {
+                terminal.clearScreen();
+                System.out.print("You died!");
+                isGamePlaying = false;
+            }
             if (Final.gameOver == true){
                 terminal.clearScreen();
                 System.out.print("Congrats you win!");
@@ -24,10 +30,8 @@ public class Main {
             if (firstPlayer.golds) {
                 System.out.println(firstPlayer.hasGold);
             }
-            System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
-            
             if (move.equals("d")) {
                if(Map.validate(firstPlayer.x + 1, firstPlayer.y)) {firstPlayer.setXpositive();}
             }
@@ -45,7 +49,8 @@ public class Main {
                 }
             }
             else if (move.equals("exit")) {
-                isGamePlaying = false;
+                terminal.clearScreen();
+                break;
             }
             if (firstPlayer.y < 1) {
                 firstPlayer.y = 1;

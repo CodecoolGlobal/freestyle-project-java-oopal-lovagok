@@ -6,7 +6,7 @@ public class Player {
     int HP = 100;
     String body = "&";
     boolean key = false;
-    boolean golds = true;
+    boolean golds = false;
     public final String hasKey = "You've got a key";
     public final String hasGold = "You've got Golds";
     private String sword = "short sword";
