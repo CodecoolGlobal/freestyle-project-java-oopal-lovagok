@@ -4,11 +4,21 @@ public class Enemy {
     private static int HP;
     private static int att;
     private static int def;
+
     public static void main(String[] args) {
         Enemy.HP = setHP();
         Enemy.att = setAtt();
         Enemy.def = setDef();
     }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public int getAtt() {
+        return att;
+    }
+
     public static int setHP() {
         HP = random();
         return HP;

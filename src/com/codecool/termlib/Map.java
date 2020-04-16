@@ -50,7 +50,7 @@ public class Map  {
             partOfMap = Character.toString(map.charAt(index));
             
             if (index == keyOfMap && firstPlayer.y == row && firstPlayer.x == col) {                             
-                mapMultiDim[row][col] = firstPlayer.body;
+                mapMultiDim[row][col] = "\033[1;41;30m" + firstPlayer.body + "\033[0m";
                 System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
                 firstPlayer.setKey(true);
@@ -59,6 +59,16 @@ public class Map  {
             else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {                             
                 mapMultiDim[row][col] = dot;
                 firstPlayer.setSword(item);
+                index ++;
+            }
+            else if (partOfMap.equals(E) && firstPlayer.y == row && firstPlayer.x == col) {                             
+                mapMultiDim[row][col] = dot;
+                //mapMultiDim[row][col] = "\033[1;41;30m" + firstPlayer.body + "\033[0m";
+                //firstPlayer.setKey(true);
+                boolean hasWon = firstPlayer.battle();
+                if (hasWon == false) {
+                    break;
+                }
                 index ++;
             }
             else if (firstPlayer.y == row && firstPlayer.x == col)
