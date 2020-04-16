@@ -116,35 +116,14 @@ public class Map  {
                             mapMultiDim[row][col] = "\033[1;30m" + partOfMap + "\033[0m";
                             System.out.print(mapMultiDim[row][col]);
                             index++;
-                        } else if (partOfMap.equals(hashTag)) {
-                                if (firstPlayer.key && firstPlayer.secondKey) {
-                                    mapMultiDim[6][29] = "\033[1;43;30m" + dot + "\033[0m";
-                                    mapMultiDim[13][31] = "\033[1;43;30m" + dot + "\033[0m";
-                                    System.out.print(mapMultiDim[row][col]);
-                                    index++;
-                                }
-                                else if (firstPlayer.key) {
-                                mapMultiDim[6][29] = "\033[1;43;30m" + hashTag + "\033[0m";
-                                mapMultiDim[13][31] = "\033[1;43;30m" + dot + "\033[0m";
+                        }  else if (partOfMap.equals(hashTag)) {
+                                mapMultiDim[6][29] = firstPlayer.secondKey ? "." : "\033[1;43;30m" + hashTag + "\033[0m";
+                                mapMultiDim[13][31] = firstPlayer.key ? "." : "\033[1;43;30m" + hashTag + "\033[0m";
                                 System.out.print(mapMultiDim[row][col]);
                                 index++;
-                                }
-
-                             else {
-                                mapMultiDim[6][29] = "\033[1;43;30m" + hashTag + "\033[0m";
-                                mapMultiDim[13][31] = "\033[1;43;30m" + hashTag + "\033[0m";
-                                System.out.print(mapMultiDim[row][col]);
-                                index++;
-                            }
-                        } else {
+                            } 
+                         else {
                             mapMultiDim[row][col] = partOfMap;
-                            if (firstPlayer.key) {
-                                mapMultiDim[22][51] = ".";
-                                mapMultiDim[13][31] = ".";
-                            }
-                            if (firstPlayer.secondKey) {
-                                mapMultiDim[6][29] = "D";
-                            }
                             System.out.print(mapMultiDim[row][col]);
                             index++;
                         }
