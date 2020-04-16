@@ -38,5 +38,8 @@ public class Player {
     public void setSword(String newItem) {
         this.sword = newItem;
     }
+    public void setGolds(boolean have) {
+        golds = have;
+    }
 
 }

@@ -36,6 +36,9 @@ public class Map  {
     String item = "long sword";
     String partOfMap = "";
     String pipeOfMap = "|";
+    String rabbitShitOfMap = "^";
+    String littleShit = "~";
+    Loot chest = new Loot();
     try {
     for (int row = 0; row < 58 ; row++) {
         System.out.println();
@@ -50,8 +53,11 @@ public class Map  {
                 index ++;
             }
             else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {                             
+                mapMultiDim[row][col] = firstPlayer.body;
+                System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
-                firstPlayer.setSword(item);
+                if (chest.openChest()) {
+                    firstPlayer.setGolds(true);}
                 index ++;
             }
             else if (index == nextLevel && firstPlayer.y == row && firstPlayer.x == col){
@@ -65,7 +71,7 @@ public class Map  {
             System.out.print(mapMultiDim[row][col]);
             index++;
             }
-            
+
             else {
                 if (partOfMap.equals(pipeOfMap)) {
                     mapMultiDim[row][col] = partOfMap;
