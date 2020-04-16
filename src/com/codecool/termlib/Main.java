@@ -13,7 +13,7 @@ public class Main {
         level1.main(firstPlayer);
         Final gameEnd = new Final();
         while (isGamePlaying) {
-            if (gameEnd.gameOver == true){
+            if (gameEnd.gameOver){
                 System.out.print("Congrats you win!");
                 isGamePlaying= false;
             }
