@@ -66,9 +66,8 @@ public class Terminal {
      *
      * @param color The color to set.
      */
-    public void setColor(int color) {
+    public void setColor(Color color) {
          
-       // \u001B[35m
        System.out.println(CONTROL_CODE + String.valueOf(color) + STYLE);
 
     }
@@ -116,6 +115,7 @@ public class Terminal {
      * position.
      */
     public void setChar(char c) {
+        command(commandString);
     }
 
     /**
@@ -127,6 +127,7 @@ public class Terminal {
      * @param commandString The unique part of a command sequence.
      */
     private void command(String commandString) {
+
     }
 	
 

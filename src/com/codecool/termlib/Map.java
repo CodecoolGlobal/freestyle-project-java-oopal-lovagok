@@ -48,7 +48,6 @@ public class Map  {
     String pipeOfMap = "|";
     String rabbitShitOfMap = "^";
     String littleShit = "~";
-    String ampersand = firstPlayer.body;
     try {
     for (int row = 0; row < 58 ; row++) {
         System.out.println();
