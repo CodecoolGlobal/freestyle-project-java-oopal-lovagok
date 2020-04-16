@@ -5,7 +5,7 @@ public class Loot {
         int x = (int) (Math.random() * 10);
         return x;
     }
-    public static boolean openChest() {
+    public boolean openChest() {
         if (random() > 1) {
             return true;
         } else {return false;}
