@@ -1,9 +1,12 @@
 package com.codecool.termlib;
 
 public class Player {
-    int x = 5;
+    int x = 45;
     int y = 4;
     int HP = 100;
+    int att = 10;
+    int def = 8;
+    int dmg = 4;
     String body = "&";
     boolean key = false;
     boolean golds = false;
@@ -13,10 +16,6 @@ public class Player {
 
     public void setXpositive() {
         this.x = this.x + 1;
-    }
-
-    public void setKey(boolean have) {
-        key = have;
     }
 
     public void setXnegative() {
@@ -31,6 +30,10 @@ public class Player {
         this.y = this.y + 1;
     }
 
+    public void setKey(boolean have) {
+        key = have;
+    }
+
     public String getSword() {
         return sword;
     }
@@ -38,8 +41,27 @@ public class Player {
     public void setSword(String newItem) {
         this.sword = newItem;
     }
+
     public void setGolds(boolean have) {
         golds = have;
     }
 
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int dmg) {
+        this.HP -= dmg;
+    }
+    public int getAtt() {
+        return att;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public int getDmg() {
+        return dmg;
+    }
 }

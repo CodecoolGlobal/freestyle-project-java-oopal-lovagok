@@ -45,6 +45,7 @@ public class Map  {
     String rabbitShitOfMap = "^";
     String littleShit = "~";
     Loot chest = new Loot();
+    boolean hasWon = true;
     try {
     for (int row = 0; row < 58 ; row++) {
         System.out.println();
@@ -57,6 +58,18 @@ public class Map  {
                 mapMultiDim[row][col] = dot;
                 firstPlayer.setKey(true);
                 index ++;
+            }
+            else if (partOfMap.equals(E) && firstPlayer.y == row && firstPlayer.x == col) {                             
+                Enemy enemy = new Enemy();
+                //Battle battle = new Battle(enemy, firstPlayer);
+                Battle.main(enemy, firstPlayer);
+                mapMultiDim[row][col] = firstPlayer.body;
+                System.out.print(mapMultiDim[row][col]);
+                mapMultiDim[row][col] = dot;
+                index ++;
+                /* if (chest.openChest()) {
+                    firstPlayer.setGolds(true);}
+                index ++; */
             }
             else if (index == loot && firstPlayer.y == row && firstPlayer.x == col) {                             
                 mapMultiDim[row][col] = firstPlayer.body;
