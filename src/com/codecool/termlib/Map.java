@@ -108,7 +108,7 @@ public class Map  {
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(E)) {
-                    mapMultiDim[row][col] = "\033[1;44m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = firstPlayer.secondKey ? "." : "\033[1;44m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(K)) {
