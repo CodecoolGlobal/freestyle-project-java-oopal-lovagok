@@ -67,25 +67,25 @@ public class Map  {
             }
             else if (firstPlayer.y == row && firstPlayer.x == col)
             {
-            mapMultiDim[row][col] = "\033[1;41;30m" + firstPlayer.body + "\033[0m";
+            mapMultiDim[row][col] = "\033[1;41m" + firstPlayer.body + "\033[0m";
             System.out.print(mapMultiDim[row][col]);
             index++;
             }
             else {
                 if (partOfMap.equals(pipeOfMap)) {
-                    mapMultiDim[row][col] = "\033[1;33m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[2;37;46m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(rabbitShitOfMap)) {
-                    mapMultiDim[row][col] = "\033[1;31m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;32;42m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(littleShit)) {
-                    mapMultiDim[row][col] = "\033[1;32m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;34;44m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(dot)) {
-                    mapMultiDim[row][col] = "\033[1;34m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[2;37m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(F)) {
@@ -93,19 +93,19 @@ public class Map  {
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(E)) {
-                    mapMultiDim[row][col] = "\033[2;44;30m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[2;44m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(K)) {
-                    mapMultiDim[row][col] = "\033[2;43;30m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;43m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(S)) {
-                    mapMultiDim[row][col] = "\033[2;30;44m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;30m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(hashTag)) {
-                    mapMultiDim[row][col] = "\033[2;43;30m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;43;30m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else {
@@ -127,8 +127,8 @@ public class Map  {
    
     }
     public static boolean validate(int imagineX , int imagineY){
-        String pipe = new String("\u001B[1;33m" + "|" + "\u001B[0m");
-        String door = new String("#");
+        String pipe = new String("\033[2;37;46m" + "|" + "\033[0m");
+        String door = new String("\033[1;43;30m" + "#" + "\033[0m");
         String nextElement = mapMultiDim[imagineY][imagineX];
         if (nextElement.equals(pipe) || nextElement.equals(door)){
             return false;
