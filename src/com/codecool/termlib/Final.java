@@ -18,7 +18,7 @@ public class Final {
                     String Answer = AnswerScan.next();
                     gameOver = Answer.equals(GoodAnswers[num]) ? true:false;
                     if (gameOver == false){
-                        player.HP = player.HP-50;
+                        player.HP = player.HP-30;
                         if (player.HP <= 0)
                         {gameOver = false;} else {ending(player);}
                     }

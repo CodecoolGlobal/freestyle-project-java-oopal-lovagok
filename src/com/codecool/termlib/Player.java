@@ -2,10 +2,12 @@ package com.codecool.termlib;
 
 public class Player {
     int x = 5;
-    int y = 4;
+    int y = 20;
     int HP = 100;
+    int attack = 5;
     String body = "&";
     boolean key = false;
+    boolean secondKey = false;
     boolean golds = false;
     public final String hasKey = "You've got a key";
     public final String hasGold = "You've got Golds";

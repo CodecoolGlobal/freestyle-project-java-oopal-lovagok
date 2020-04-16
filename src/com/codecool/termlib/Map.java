@@ -6,10 +6,10 @@ public class Map  {
     "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" +
     "|F.......................................................|" +
     "|.....................^^^^^^^|||||||||||||||||||||||||||||" +
-    "|.....................^^^^^^^|...................E.......|" +
-    "|.....................^^^^^^^|......E....................|" +
     "|.....................^^^^^^^|...........................|" +
-    "|............................#...................E.......|" +
+    "|.....................^^^^^^^|...........................|" +
+    "|.....................^^^^^^^|...........................|" +
+    "|............................#...........................|" +
     "|............................|...........................|" +
     "|............................|...........................|" +
     "|............................|........E..................|" +
@@ -62,9 +62,16 @@ public class Map  {
                 mapMultiDim[row][col] = firstPlayer.body;
                 System.out.print(mapMultiDim[row][col]);
                 mapMultiDim[row][col] = dot;
-                /* if (chest.openChest()) {
+                if (chest.openChest()) {
                     firstPlayer.setGolds(true);}
-                index ++; */
+                index ++;
+            } else if (index == boss && firstPlayer.y == row && firstPlayer.x == col) {
+                Battle battle = new Battle();
+                Enemy enemy = new Enemy();
+                battle.battle(firstPlayer, enemy);
+                firstPlayer.secondKey = true;
+                index ++;
+
             }
             else if (index == nextLevel && firstPlayer.y == row && firstPlayer.x == col){
                 mapMultiDim[row][col] = dot;
@@ -99,7 +106,7 @@ public class Map  {
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(E)) {
-                    mapMultiDim[row][col] = "\033[2;44m" + partOfMap + "\033[0m";
+                    mapMultiDim[row][col] = "\033[1;44m" + partOfMap + "\033[0m";
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 } else if (partOfMap.equals(K)) {
@@ -120,6 +127,9 @@ public class Map  {
                         mapMultiDim[22][51] = ".";
                         mapMultiDim[13][31] = ".";
                             }
+                    if (firstPlayer.secondKey) {
+                        mapMultiDim[6][29] = "D";
+                    }
                     System.out.print(mapMultiDim[row][col]);
                     index ++;
                 }

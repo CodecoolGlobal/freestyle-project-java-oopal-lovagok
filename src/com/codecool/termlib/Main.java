@@ -12,7 +12,6 @@ public class Main {
         terminal.clearScreen();
         level1.main(firstPlayer);
         while (isGamePlaying) {
-            System.out.println("Which way u want to move?");
             if (firstPlayer.HP <= 0) {
                 terminal.clearScreen();
                 System.out.print("You died!");
@@ -30,6 +29,7 @@ public class Main {
             if (firstPlayer.golds) {
                 System.out.println(firstPlayer.hasGold);
             }
+            System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
             String move = sc.next();
             if (move.equals("d")) {
