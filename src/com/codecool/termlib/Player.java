@@ -2,7 +2,7 @@ package com.codecool.termlib;
 
 public class Player {
     int x = 5;
-    int y = 22;
+    int y = 4;
     int HP = 100;
     String body = "&";
     boolean key = false;
