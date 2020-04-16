@@ -104,26 +104,14 @@ public class Map  {
                             System.out.print(mapMultiDim[row][col]);
                             index++;
                         } else if (partOfMap.equals(E)) {
-                            if (firstPlayer.boss) {
-                                mapMultiDim[row][col] = "\033[2;37m" + dot + "\033[0m";
+                                mapMultiDim[row][col] = firstPlayer.secondKey ? "." : "\033[1;44m" + partOfMap + "\033[0m";
                                 System.out.print(mapMultiDim[row][col]);
                                 index++;
-                            } else {
-                                mapMultiDim[row][col] = "\033[1;44m" + partOfMap + "\033[0m";
+                                }
+                         else if (partOfMap.equals(K)) {
+                                mapMultiDim[row][col] = firstPlayer.key ? "." : "\033[1;43m" + partOfMap + "\033[0m";
                                 System.out.print(mapMultiDim[row][col]);
-                                index++;
-                            }
-                        } else if (partOfMap.equals(K)) {
-                            if (firstPlayer.key) {
-                                mapMultiDim[row][col] = "\033[2;37m" + dot + "\033[0m";
-                                System.out.print(mapMultiDim[row][col]);
-                                index++;
-                            } else {
-                                mapMultiDim[row][col] = "\033[1;43m" + partOfMap + "\033[0m";
-                                System.out.print(mapMultiDim[row][col]);
-                                index++;
-                            }
-
+                                index++;                         
                         } else if (partOfMap.equals(S)) {
                             mapMultiDim[row][col] = "\033[1;30m" + partOfMap + "\033[0m";
                             System.out.print(mapMultiDim[row][col]);
