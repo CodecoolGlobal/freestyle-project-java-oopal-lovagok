@@ -115,7 +115,6 @@ public class Terminal {
      * position.
      */
     public void setChar(char c) {
-        command(commandString);
     }
 
     /**

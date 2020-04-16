@@ -9,10 +9,15 @@ public class Main {
         boolean isGamePlaying = true;
         Player firstPlayer = new Player();
         Map level1 = new Map();
+        terminal.clearScreen();
         level1.main(firstPlayer);
         while (isGamePlaying) {
+            System.out.println("Health Point: " + firstPlayer.HP);
             if (firstPlayer.key) {
-                System.out.println(firstPlayer.VICTORY);
+                System.out.println(firstPlayer.hasKey);
+            }
+            if (firstPlayer.golds) {
+                System.out.println(firstPlayer.hasGold);
             }
             System.out.println("Which way u want to move?");
             Scanner sc = new Scanner(System.in);
@@ -49,7 +54,7 @@ public class Main {
             else if (firstPlayer.x > 56) {
                 firstPlayer.x = 56;
             }
-		terminal.clearScreen();
+            terminal.clearScreen();
             level1.main(firstPlayer);
         }
     }

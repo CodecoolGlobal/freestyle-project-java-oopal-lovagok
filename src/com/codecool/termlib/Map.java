@@ -25,14 +25,9 @@ public class Map  {
     "|...|.........|^^^^^^^^^^^^~~~~~~~~~^^^^^^^^^^^^^^|.|....|" +
     "|...|.|||||||||^^^^^^^^^^^~~~~~~~~~~~^^^^^^^^^^^^^|.|....|" +
     "|...|.|^^^^^^^^^^^^^^^^^^^~~~~~~~~~~~^^^^^^^^^^^^^|.|....|" +
-    "|...|.|^^^^^^^^^^^^^^^^^^^^~~~~~~~~~^^^^^^^^^^^^^^|K|....|" +
+    "|...|.|^^^^^^^^^^^^^^^^^^^^~~~~~~~~~^^^^^^^^^^^^^^|K|.L..|" +
     "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";
     int keyOfMap = map.indexOf("K");
-    /* if (firstPlayer.key == true){
-        System.out.println(map.charAt(keyOfMap));
-        String cica = map.replace("K", ".");
-        System.out.println(cica);
-    } */
     int pipe = map.indexOf("|");
     int loot = map.indexOf("L");
     int boss = map.indexOf("E");
@@ -129,8 +124,9 @@ public class Map  {
     }
     public static boolean validate(int imagineX , int imagineY){
         String pipe = new String("\u001B[1;33m" + "|" + "\u001B[0m");
+        String door = new String("#");
         String nextElement = mapMultiDim[imagineY][imagineX];
-        if (nextElement.equals(pipe)){
+        if (nextElement.equals(pipe) || nextElement.equals(door)){
             return false;
         } else {return true;}
     }
