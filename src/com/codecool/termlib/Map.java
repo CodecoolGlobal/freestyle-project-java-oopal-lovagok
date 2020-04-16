@@ -1,5 +1,4 @@
 package com.codecool.termlib;
-<<<<<<< HEAD
 
 public class Map {
     static String[][] mapMultiDim = new String[24][58];
