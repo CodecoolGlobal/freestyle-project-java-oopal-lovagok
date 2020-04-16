@@ -42,7 +42,6 @@ public class Main {
             else if (move.equals("exit")) {
                 isGamePlaying = false;
             }
-            /* terminal.clearScreen(); */
             if (firstPlayer.y < 1) {
                 firstPlayer.y = 1;
             }
