@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Final {
         String[] Questions = {"Mike is a butcher. He is 5’10” tall. What does he weigh?","What is full of holes but can still hold water?","What has a mouth, but cannot eat; moves, but has no legs; and has a bank, but cannot put money in it?"};
         String [] GoodAnswers = {"meat","sponge","river"};
-        boolean gameOver = false;
+        static boolean gameOver = false;
         public void ending(Player player){
                 System.out.println("1. Asnwer the gatekeeper question");
                 System.out.println("2. Bribe");
@@ -16,7 +16,7 @@ public class Final {
                     System.out.println(Questions[num]);
                     Scanner AnswerScan = new Scanner(System.in);
                     String Answer = AnswerScan.next();
-                    gameOver = Answer.equals(GoodAnswers[num]) ? true : false;
+                    gameOver = Answer.equals(GoodAnswers[num]) ? true:false;
                     if (gameOver == false){
                         player.HP = player.HP-50;
                         ending(player);
