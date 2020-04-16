@@ -37,7 +37,6 @@ public class Main {
             else if (move.equals("exit")) {
                 isGamePlaying = false;
             }
-            terminal.clearScreen();
             if (firstPlayer.y < 1) {
                 firstPlayer.y = 1;
             }
@@ -50,6 +49,7 @@ public class Main {
             else if (firstPlayer.x > 56) {
                 firstPlayer.x = 56;
             }
+		terminal.clearScreen();
             level1.main(firstPlayer);
         }
     }
