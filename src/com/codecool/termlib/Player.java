@@ -3,9 +3,12 @@ package com.codecool.termlib;
 public class Player {
     int x = 5;
     int y = 22;
+    int HP = 100;
     String body = "&";
     boolean key = false;
-    public final String VICTORY = "you get the key bro";
+    boolean golds = false;
+    public final String hasKey = "You've got a key";
+    public final String hasGold = "You've got Golds";
     private String sword = "short sword";
 
     public void setXpositive() {
